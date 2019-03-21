@@ -1,0 +1,46 @@
+<% include ./partials/header %>
+
+<div class="container">
+    <div class="row">
+        <h1 class="pt-3 text-light m- pl-0"><%= show.name %> <span class="text-danger ml-2 px-3"> | </span> <span class="text-dark ml-2">(<%= show.year %> - )</span></h1>
+        <!-- This will be added after watching -->
+        <h6 class="text-secondary pt-3 pb-0 col-md-10 pl-0">Season 1 Episode 4 - The name blah blah</h6>
+        <!-- Will show summary of the episode playing or at starting OG summary  -->
+        
+        <p class="text-light pt-4 col-md-10 pl-0"><em><%= show.summary %></em></p>
+
+        <!-- <p class="text-danger pb-0 mb-0"><em>Watch Trailer for Season 1 to get started, or Sign Up to pick up where you left</em></p> -->
+        <video class="container-fluid col-md-9 m-0 p-0" height="100%" controls>
+                <source src="/got.mkv" type="video/mp4">
+        </video>
+        
+    </div>
+    <div class="row pt-5">
+        <div class="col-md-2 p-0">
+            <!-- <p class="text-danger"><em>Watch the Trailer for Season 1</em></p>
+            <iframe  width="560" height="315" src="https://www.youtube.com/embed/BpJYNVhGf1s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+            <img src="<%= show.albumArt %>" alt="" class="img-fluid">
+        </div>
+        <div class="col-md-5 pl-5">
+            <p class="text-light mt-3 pr-2">IMdB Rating: <span class="text-danger">N/A</span></p>
+            <p class="text-light mt-3 pr-2">Total Seasons : <span class="text-danger">N/A</span></p>
+            <p class="text-light mt-3 pr-2">Watch Time : <span class="text-danger">~45 min/episode</span></p>
+            <p class="text-light mt-3 pr-2">Genres : <span class="text-danger">N/A</span></p>                
+            <p class="text-dark"><em>Some episodes may be NSFW</em></p>
+
+        </div>
+    </div>
+    <div class="row pt-3">
+        <h5  class="text-light pb-3">Comments <i class="far fa-comments text-dark"></i></h5>
+        <hr width="25%">
+        <% show.comments.forEach(function(comment){ %>
+            <div class="col-md-12">
+                <p class="text-danger pb-1 m-0"><strong><%= comment.author %></strong></p>
+                <p class="text-light"><em><%= comment.comment %></em></p>
+            </div>
+        <% }) %>
+    </div>
+    
+</div>
+
+<% include ./partials/footer %>

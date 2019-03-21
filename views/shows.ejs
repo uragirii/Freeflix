@@ -1,0 +1,13 @@
+<% include ./partials/header %>
+<div class="container">
+    <div class="row">
+        <% shows.forEach(function(show){ %>
+            <div class="col-2">
+                <a href="/shows/<%= show._id%>"><img src="<%= show.albumArt %>" alt="" class="img-fluid"></a>
+                <p class="text-light pt-2 text-center"> <%= show.name %> (<%= show.year %>) </p>
+            </div>
+        <% }) %>
+    </div>
+</div>
+
+<% include ./partials/footer %>

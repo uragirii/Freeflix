@@ -1,0 +1,50 @@
+body{
+    background-color: #141414;
+}
+.navbar{
+    background: #090909;
+    padding-right: 10%;
+    padding-left: 10%;
+}
+.far{
+    padding-left:5px;
+}
+.nav-link{
+    color:#d9534f;
+}
+/* .navbar.scrolled {
+    background-color: #090909;
+    transition: background 750ms;
+    padding-right: 10%;
+    padding-left: 10%;
+}*/
+.jumbotron{
+    height: 100vh;
+}
+.jumbo-text{
+    padding-top:auto;
+    color:white;
+}
+.jumbotron .container{
+    height: 100%;
+    width: 100%;
+}
+.jumbotron .container .row{
+    height: 100%;
+    width: 100%;
+}
+#slide1{
+    background: url('img/slide-1.jpg');
+    background-size: 100% 100%;
+}
+#slide2{
+    background: url('img/slide-2.jpg');
+    background-size: 100% 100%;
+}
+#slide3{
+    background: url('img/slide-3.jpg');
+    background-size: 100% 100%;
+}
+nav ul{
+    font-size : 1.2rem;
+}

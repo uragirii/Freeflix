@@ -1,0 +1,29 @@
+<% include ./header %>    
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg justify-content-between py-0" id="mainNavbar">
+        <a href="/" class="navbar-brand">
+            <img src="img/logo.png" alt="" class="logo" width="128px" height="42px">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navExtras" aria-controls="navaExtras" aria-expanded="False" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navExtras">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active"><a href="/" class="nav-link text-danger">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link text-light">Movies</a></li>
+                <li class="nav-item"><a href="#" class="nav-link text-light">TV Shows</a></li>
+                <li class="nav-item"><a href="#" class="nav-link text-light">Anime</a></li>
+            </ul>
+
+            <div class="navbar-nav">
+                <form class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-danger my-2 mycarousel-sm-0" type="submit">Search</button>
+                </form>
+                <button class="btn btn-outline-none my-2 mycarousel-sm-0 text-light" onclick="window.location.href = '/login';"><i class="far fa-user"></i> Login</button>
+            </div>
+        </div>
+    </nav>

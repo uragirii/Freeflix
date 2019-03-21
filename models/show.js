@@ -1,11 +1,16 @@
 var mongoose = require("mongoose");
 
-var seriesSchema = new mongoose.Schema({
+var showSchema = new mongoose.Schema({
     name    : String,
     year    : String,
-    season  : Number,
-    episodes: Number,
-    summary : String
+    summary : String,
+    albumArt: String,
+    comments:[
+        {
+            type : mongoose.Schema.Types.ObjectId,
+            ref  : "Comment" 
+        }
+    ]
 });
 
-module.exports = mongoose.model("Series",seriesSchema);
+module.exports = mongoose.model("Show",showSchema);
