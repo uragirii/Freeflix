@@ -2,9 +2,10 @@
 
 <div class="container">
     <div class="row">
-        <h1 class="pt-3 text-light m- pl-0"><%= show.name %> <span class="text-danger ml-2 px-3"> | </span> <span class="text-dark ml-2">(<%= show.year %> - )</span></h1>
+        <h1 class="pt-3 text-light m- pl-0"><%= show.name %> <span class="text-danger ml-2 px-3"> | </span> <span class="text-dark ml-2">(<%= show.year %>)</span></h1>
         <!-- This will be added after watching -->
-        <h6 class="text-secondary pt-3 pb-0 col-md-10 pl-0">Season 1 Episode 4 - The name blah blah</h6>
+        <!-- TODO: Change the name of episode playing -->
+        <h6 class="text-secondary pt-3 pb-0 col-md-10 pl-0">Season <span id="seasonNum">1</span> Episode <span id="episodeNum">1</span> </h6>
         <!-- Will show summary of the episode playing or at starting OG summary  -->
         
         <p class="text-light pt-4 col-md-10 pl-0"><em><%= show.summary %></em></p>
@@ -13,7 +14,20 @@
         <video class="container-fluid col-md-9 m-0 p-0" height="100%" controls>
                 <source src="/got.mkv" type="video/mp4">
         </video>
-        
+        <div class="container pt-3 row">
+            <select class="custom-select col-2 text-light seasons" style="background-color : #292b2c; border: 0;">
+                <option selected>Season 1</option>
+                    <% for(var i =1;i< show.seasons.length; ++i){ %>
+                        <option>Season <%= i+1 %></option>
+                    <% } %>
+            </select>
+            <div class="col-7 episodes">
+                    <button class="btn btn-sm btn-outline-secondary text-light p-2 m-1 active" style="border: 0">Ep 1</button>
+                <% for(var i=1; i < show.seasons[0]; ++i) { %>
+                    <button class="btn btn-sm btn-outline-secondary text-light p-2 m-1" style="border: 0">Ep <%= i+1 %></button>
+                <% } %>
+            </div>
+        </div>
     </div>
     <div class="row pt-5">
         <div class="col-md-2 p-0">
@@ -22,33 +36,38 @@
             <img src="<%= show.albumArt %>" alt="" class="img-fluid">
         </div>
         <div class="col-md-5 pl-5">
-            <p class="text-light mt-3 pr-2">IMdB Rating: <span class="text-danger">N/A</span></p>
-            <p class="text-light mt-3 pr-2">Total Seasons : <span class="text-danger">N/A</span></p>
-            <p class="text-light mt-3 pr-2">Watch Time : <span class="text-danger">~45 min/episode</span></p>
-            <p class="text-light mt-3 pr-2">Genres : <span class="text-danger">N/A</span></p>                
+            <p class="text-light mt-3 pr-2">IMdB Rating: <span class="text-danger"><%= show.imdb %></span></p>
+            <p class="text-light mt-3 pr-2">Total Seasons : <span class="text-danger"><%= show.seasons.length %></span></p>
+            <p class="text-light mt-3 pr-2">Watch Time : <span class="text-danger">~<%= show.watchTime %> min/episode</span></p>
+            <p class="text-light mt-3 pr-2">Genres : <span class="text-danger"><%= show.genres %></span></p>                
             <p class="text-dark"><em>Some episodes may be NSFW</em></p>
 
         </div>
     </div>
+    <hr width="25%" color="gray">
     <div class="row pt-3">
-        <h5  class="text-light pb-3">Comments <i class="far fa-comments text-dark"></i></h5>
-        <hr width="25%">
-        <% if(!currentUser){ %>
-            <textarea disabled>Sign In to write a comment</textarea>
-        <% }else { %>
-            <form action="/shows/<%= show._id%>/comments" method="POST">
-                <textarea  name="comment">Please don't put spoilers in comments</textarea>
-                <button>Submit</button>
-            </form>
-        <% }%>
+        <h5  class="text-light pb-3 col-12">Comments <i class="far fa-comments text-dark"></i></h5>
+        <div class="form-group">
+            <% if(!currentUser){ %>
+                <textarea class="form-control mx-3 text-secondary" style="display:inline; background-color: #292b2c" rows=2 cols=50 disabled>Sign In to write a comment</textarea>
+            <% }else { %>
+                <form class="form-inline" action="/shows/<%= show._id%>/comments" method="POST">
+                    <textarea class="form-control mx-3 text-light" name="comment" style="display:inline; background-color: #292b2c" rows=2 cols=50 placeholder="Please don't put spoilers in comments"></textarea>
+                    <button class="btn btn-outline-dark btn-sm m-3 text-light" style="display:inline;">Submit</button>
+                </form>
+            <% }%>
+        </div>
         <% show.comments.forEach(function(comment){ %>
             <div class="col-md-12">
-                <p class="text-danger pb-1 m-0"><strong><%= comment.author %></strong></p>
+                <p class="text-danger pb-1 m-0 text-capitalize"><strong><%= comment.author %></strong></p>
                 <p class="text-light"><em><%= comment.comment %></em></p>
             </div>
         <% }) %>
     </div>
     
 </div>
-
+<script>
+var seasonsInfo = [<%= show.seasons%>];
+</script>
+<script src="/javascript/chngep.js"></script>
 <% include ./partials/footer %>

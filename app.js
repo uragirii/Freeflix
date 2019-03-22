@@ -8,7 +8,6 @@ Show = require("./models/show"),
 User = require("./models/user"),
 Comment = require("./models/comment"),
 seedDB = require("./seeds");
-
 // APP Config
 mongoose.connect("mongodb://localhost:27017/freeflix", {useNewUrlParser:true});
 app.set("view engine","ejs");
@@ -100,7 +99,7 @@ app.get("/logout", function(req, res){
 })
 
 // Comments sections
-app.post("/shows/:id/comments", function(req, res){
+app.post("/shows/:id/comments",isLoggedIn, function(req, res){
     Show.findById(req.params.id, function(err, show){
         if(err){
             console.log(err);
