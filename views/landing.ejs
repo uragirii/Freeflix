@@ -56,57 +56,22 @@
 <div class="container">
     <h3 class="text-light py-5 ">Most Famous Series</h3>
     <div class="row">
-        <div class="col-2">
-            <img src="img/show-4.jpg" alt="Sherlock" class="img-fluid">
-            <p class="text-light pt-2 text-center">Sherlock</p>
-        </div>
-        <div class="col-2">
-            <a href="/shows"><img src="img/show-3.jpg" alt="The Game of Thrones" class="img-fluid"></a>
-            <p class="text-light pt-2 text-center">The Game of Thrones</p>
-        </div>
-        <div class="col-2">
-            <img src="img/show-6.jpg" alt="WestWorld" class="img-fluid">
-            <p class="text-light pt-2 text-center">WestWorld</p>
-        </div>
-        <div class="col-2">
-            <img src="img/show-1.jpg" alt="True Detective" class="img-fluid">
-            <p class="text-light pt-2 text-center">True Detective</p>
-        </div>
-        <div class="col-2">
-            <img src="img/show-5.jpg" alt="Black Mirror" class="img-fluid">
-            <p class="text-light pt-2 text-center">Black Mirror</p>
-        </div>
-        <div class="col-2">
-            <img src="img/show-2.jpg" alt="" class="img-fluid">
-            <p class="text-light pt-2 text-center">Friends</p>
-        </div>   
+        <% shows.forEach(function(show){ %>
+            <div class="col-2">
+                <a href="/shows/<%= show._id%>"><img src="<%= show.albumArt %>" alt="" class="img-fluid"></a>
+                <p class="text-light pt-2 text-center"> <%= show.name %> (<%= show.year %>) </p>
+            </div>
+        <% }) %>        
     </div>
-    <div class="row">
-        <div class="col-2">
-            <img src="img/show-1.jpg" alt="True Detective" class="img-fluid">
-            <p class="text-light pt-2 text-center">True Detective</p>
+    <!-- <div class="row">
+            <% shows.forEach(function(show){ %>
+                <div class="col-2">
+                    <a href="/shows/<%= show._id%>"><img src="<%= show.albumArt %>" alt="" class="img-fluid"></a>
+                    <p class="text-light pt-2 text-center"> <%= show.name %> (<%= show.year %>) </p>
+                </div>
+            <% }) %>        
         </div>
-        <div class="col-2">
-            <img src="img/show-2.jpg" alt="Friends" class="img-fluid">
-            <p class="text-light pt-2 text-center">Friends</p>
-        </div>
-        <div class="col-2">
-            <a href="/shows"><img src="img/show-3.jpg" alt="The Game of Thrones" class="img-fluid"></a>
-            <p class="text-light pt-2 text-center">The Game of Thrones</p>
-        </div>
-        <div class="col-2">
-            <img src="img/show-4.jpg" alt="Sherlock" class="img-fluid">
-            <p class="text-light pt-2 text-center">Sherlock</p>
-        </div>
-        <div class="col-2">
-            <img src="img/show-5.jpg" alt="Black Mirror" class="img-fluid">
-            <p class="text-light pt-2 text-center">Black Mirror</p>
-        </div>
-        <div class="col-2">
-            <img src="img/show-6.jpg" alt="WestWorld" class="img-fluid">
-            <p class="text-light pt-2 text-center">WestWorld</p>
-        </div>   
-    </div>
+    -->
     <h3 class="text-light py-5 ">Most Famous Movies</h3>
     <div class="row">
         <div class="col-2">

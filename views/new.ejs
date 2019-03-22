@@ -1,0 +1,44 @@
+<% include ./partials/header %>
+<!-- this will be admin only page. So no UI will be there -->
+
+<!-- //     name    : String,
+//     year    : String,
+//     summary : String,
+//     albumArt: String
+//     imdb    : String,
+//     seasons : [             // Stored as [{"Season 1": 10}, {"Season  2":12}, ...]
+//              {
+//                  season : String,
+//                  episodes : Number
+//              }
+//          ]
+//     watchTime : Number,     // Watch Time in minutes per episode
+//     genres    : String, -->
+<div class="container">
+    <br>
+    <div class="row justify-content-around text-light">
+        <div class="col-md-5">
+            <h1>Add a new TV Show</h1>
+            <form action="/shows" method="POST"> 
+                <p>Name</p>
+                <input type="text"  class="input-group-text" name="show[name]" placeholder ="Name" required>
+                <p>Year</p>
+                <input type="text"  class="input-group-text" name="show[year]" placeholder ="Year" required>
+                <p>Summary</p>
+                <input type="text"  class="input-group-text" name="show[summary]" placeholder ="Summary" required>
+                <p>Imdb</p>
+                <input type="text" class="input-group-text" name="show[imdb]" placeholder ="IMDb" required>
+                <p>Album Art</p>
+                <input type="text" class="input-group-text" name="show[albumArt]" placeholder ="Album Art link" required>
+                <p>Seasons</p>
+                <input type="text"  class="input-group-text" name="show[seasons]" placeholder ="Enter array of no of episodes separeted by comma" required>
+                <p>Watch Time per episode</p>
+                <input type="number"  class="input-group-text" name="show[watchTime]" placeholder ="watchTime" required>
+                <p>Genre</p>
+                <input type="text"  class="input-group-text" name="show[genres]" placeholder ="Genre" required>
+                <button>Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+<% include ./partials/footer %>

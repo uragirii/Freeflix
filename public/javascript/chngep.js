@@ -1,6 +1,7 @@
 var seasonValue = document.getElementsByClassName("seasons");
 var episodeValue = document.getElementsByClassName("episodes");
 var videoFrame = document.getElementsByTagName("video");
+var readMore = document.getElementById("readMore");
 console.log(seasonsInfo);
 
 for(var i=0; i<seasonValue.length; ++i){
@@ -18,3 +19,8 @@ for(var i=0; i<seasonValue.length; ++i){
         episodeValue[0].innerHTML = initialHTML;
     })
 }
+
+readMore.addEventListener("click", function(){
+    var summaryS = document.getElementById("showSum");
+    summaryS.textContent = summary;
+})

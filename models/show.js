@@ -5,7 +5,7 @@ var showSchema = new mongoose.Schema({
     year    : String,
     summary : String,
     imdb    : String,
-    seasons : [             // Stored as [{"Season 1": 10}, {"Season  2":12}, ...]
+    seasons : [             // 
         {
             type : Number
         }

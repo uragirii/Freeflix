@@ -6,14 +6,14 @@ LocalStrategy = require("passport-local"),
 app = express(),
 Show = require("./models/show"),
 User = require("./models/user"),
-Comment = require("./models/comment"),
-seedDB = require("./seeds");
+Comment = require("./models/comment");
+// seedDB = require("./seeds");
 // APP Config
 mongoose.connect("mongodb://localhost:27017/freeflix", {useNewUrlParser:true});
 app.set("view engine","ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({extended: true}));
-seedDB();
+// seedDB();
 
 // Passport Congiguration
 app.use(require("express-session")({
@@ -33,7 +33,14 @@ app.use(function(req, res, next){
 
 
 app.get("/", function(req, res){
-    res.render("landing");
+    Show.find({}, function(err,shows){
+        if(err){
+            console.log(err);
+        }
+        else{
+            res.render("landing", {shows:shows});
+        }
+    });
 });
 
 app.get("/shows",function(req, res){
@@ -46,6 +53,20 @@ app.get("/shows",function(req, res){
         }
     });
 });
+app.get("/shows/new",isAdmin, function(req, res){
+    res.render("new");
+})
+app.post("/shows",isAdmin, function(req, res){
+    req.body.show['seasons'] = eval(req.body.show['seasons']);
+    Show.create(req.body.show, function(err, newShow){
+        if(err){
+            console.log(err);
+        }else{
+            console.log("Added a new TV show");
+            res.redirect("/shows");
+        }
+    })
+})
 app.get("/shows/:id", function(req, res){
     Show.findById(req.params.id).populate("comments").exec(function(err, show){
         if(err){
@@ -125,6 +146,15 @@ function isLoggedIn(req, res, next){
         res.redirect("/login");
     }
 };
+
+function isAdmin(req, res, next){
+    if(req.isAuthenticated() && req.user.username === "cherub"){
+        return next();
+    }
+    else{
+        res.redirect("/login");
+    }
+}
 
 app.listen(3000, function(){
     console.log("Server is running !!");

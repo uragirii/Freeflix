@@ -7,27 +7,27 @@
         <!-- TODO: Change the name of episode playing -->
         <h6 class="text-secondary pt-3 pb-0 col-md-10 pl-0">Season <span id="seasonNum">1</span> Episode <span id="episodeNum">1</span> </h6>
         <!-- Will show summary of the episode playing or at starting OG summary  -->
+        <div class="container py-3 row">
+                <select class="custom-select col-2 text-light seasons" style="background-color : #292b2c; border: 0;">
+                    <option selected>Season 1</option>
+                        <% for(var i =1;i< show.seasons.length; ++i){ %>
+                            <option>Season <%= i+1 %></option>
+                        <% } %>
+                </select>
+                <div class="col-7 episodes">
+                        <button class="btn btn-sm btn-outline-secondary text-light p-2 m-1 active" style="border: 0">Ep 1</button>
+                    <% for(var i=1; i < show.seasons[0]; ++i) { %>
+                        <button class="btn btn-sm btn-outline-secondary text-light p-2 m-1" style="border: 0">Ep <%= i+1 %></button>
+                    <% } %>
+                </div>
+            </div>
         
-        <p class="text-light pt-4 col-md-10 pl-0"><em><%= show.summary %></em></p>
 
         <!-- <p class="text-danger pb-0 mb-0"><em>Watch Trailer for Season 1 to get started, or Sign Up to pick up where you left</em></p> -->
         <video class="container-fluid col-md-9 m-0 p-0" height="100%" controls>
                 <source src="/got.mkv" type="video/mp4">
         </video>
-        <div class="container pt-3 row">
-            <select class="custom-select col-2 text-light seasons" style="background-color : #292b2c; border: 0;">
-                <option selected>Season 1</option>
-                    <% for(var i =1;i< show.seasons.length; ++i){ %>
-                        <option>Season <%= i+1 %></option>
-                    <% } %>
-            </select>
-            <div class="col-7 episodes">
-                    <button class="btn btn-sm btn-outline-secondary text-light p-2 m-1 active" style="border: 0">Ep 1</button>
-                <% for(var i=1; i < show.seasons[0]; ++i) { %>
-                    <button class="btn btn-sm btn-outline-secondary text-light p-2 m-1" style="border: 0">Ep <%= i+1 %></button>
-                <% } %>
-            </div>
-        </div>
+        
     </div>
     <div class="row pt-5">
         <div class="col-md-2 p-0">
@@ -35,7 +35,10 @@
             <iframe  width="560" height="315" src="https://www.youtube.com/embed/BpJYNVhGf1s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
             <img src="<%= show.albumArt %>" alt="" class="img-fluid">
         </div>
-        <div class="col-md-5 pl-5">
+        <div class="col-md-10 pl-5">
+            <!-- TODO:Expand on read more -->
+        <p class="text-light col-md-10 pl-0"><em id="showSum"><%= show.summary.substring(0,400) %>... <a href="#" id="readMore" class="nav-link" style="display:inline">Read More</a></em></p>
+
             <p class="text-light mt-3 pr-2">IMdB Rating: <span class="text-danger"><%= show.imdb %></span></p>
             <p class="text-light mt-3 pr-2">Total Seasons : <span class="text-danger"><%= show.seasons.length %></span></p>
             <p class="text-light mt-3 pr-2">Watch Time : <span class="text-danger">~<%= show.watchTime %> min/episode</span></p>
@@ -57,6 +60,7 @@
                 </form>
             <% }%>
         </div>
+     <!--TODO:  Add HR between things  -->
         <% show.comments.forEach(function(comment){ %>
             <div class="col-md-12">
                 <p class="text-danger pb-1 m-0 text-capitalize"><strong><%= comment.author %></strong></p>
@@ -68,6 +72,7 @@
 </div>
 <script>
 var seasonsInfo = [<%= show.seasons%>];
+var summary = "<%= show.summary%>";
 </script>
 <script src="/javascript/chngep.js"></script>
 <% include ./partials/footer %>
