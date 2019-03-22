@@ -33,6 +33,14 @@
     <div class="row pt-3">
         <h5  class="text-light pb-3">Comments <i class="far fa-comments text-dark"></i></h5>
         <hr width="25%">
+        <% if(!currentUser){ %>
+            <textarea disabled>Sign In to write a comment</textarea>
+        <% }else { %>
+            <form action="/shows/<%= show._id%>/comments" method="POST">
+                <textarea  name="comment">Please don't put spoilers in comments</textarea>
+                <button>Submit</button>
+            </form>
+        <% }%>
         <% show.comments.forEach(function(comment){ %>
             <div class="col-md-12">
                 <p class="text-danger pb-1 m-0"><strong><%= comment.author %></strong></p>

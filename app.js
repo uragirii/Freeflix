@@ -6,6 +6,7 @@ LocalStrategy = require("passport-local"),
 app = express(),
 Show = require("./models/show"),
 User = require("./models/user"),
+Comment = require("./models/comment"),
 seedDB = require("./seeds");
 
 // APP Config
@@ -89,7 +90,7 @@ app.post("/login", passport.authenticate("local", {
     successRedirect : "/shows",
     failureRedirect : "/signup"
 }), function(req, res){
-    res.redirect("/shows");
+    res.redirect(req.header('Referer'));
 });
 
 app.get("/logout", function(req, res){
@@ -98,14 +99,33 @@ app.get("/logout", function(req, res){
     res.redirect("/shows");
 })
 
-function(req, res, next){
+// Comments sections
+app.post("/shows/:id/comments", function(req, res){
+    Show.findById(req.params.id, function(err, show){
+        if(err){
+            console.log(err);
+        }else{
+            Comment.create({author: req.user.username, comment : req.body.comment}, function(err, newComment){
+                if(err){
+                    console.log(err);
+                }else{
+                    show.comments.push(newComment);
+                    show.save()
+                    res.redirect(req.header("Referer"));
+                }
+            })
+        }
+    })
+})
+
+function isLoggedIn(req, res, next){
     if(req.isAuthenticated()){
         return next();
     }
     else{
         res.redirect("/login");
     }
-}
+};
 
 app.listen(3000, function(){
     console.log("Server is running !!");

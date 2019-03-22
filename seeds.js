@@ -36,6 +36,13 @@ function seedDB(){
             console.log("Show Database Cleared");
         }
     });
+    Comment.remove({}, function(err){
+        if(err){
+            console.log(err);
+        }else{
+            console.log("Comments deleted");
+        }
+    })
     data.forEach(function(show){
         Show.create(show, function(err, newShow){
             if(err){
