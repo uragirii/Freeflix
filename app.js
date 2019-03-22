@@ -95,7 +95,7 @@ app.post("/login", passport.authenticate("local", {
 app.get("/logout", function(req, res){
     req.logout();
     console.log("Logged OUt");
-    res.redirect("/shows");
+    res.redirect("/");
 })
 
 // Comments sections

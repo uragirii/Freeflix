@@ -1,6 +1,157 @@
-<% include ./partials/header %>
+<% include ./partials/landingHeader %>
 
-<h1> Just the landing page</h1>
-<a href="/shows">Shows</a>
+<div id="showCarousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#showCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#showCarousel" data-slide-to="1"></li>
+            <li data-target="#showCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="jumbotron jumbotron-fluid py-auto px-auto" id="slide1">
+                    <div class="container">
+                    <div class="row jumbo-text">
+                        <div class="col-6 align-self-center jumbo-text-bg">
+                            <h1>The Game of Thrones</h1><br>
+                            <p>Nine noble families fight for control over the mythical lands of Westeros, while an ancient enemy returns after being dormant for thousands of years.</p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="jumbotron jumbotron-fluid" id="slide2">
+                    <div class="container">
+                        <div class="row jumbo-text">
+                            <div class="col-6 align-self-center jumbo-text-bg">
+                                <h1>Breaking Bad</h1><br>
+                                <p>A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine in order to secure his family's future.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="jumbotron jumbotron-fluid" id="slide3">
+                    <div class="container">
+                        <div class="row jumbo-text">
+                            <div class="col-6 align-self-center jumbo-text-bg">
+                                <h1>The Expanse</h1><br>
+                                <p>A police detective in the asteroid belt, the first officer of an interplanetary ice freighter and an earth-bound United Nations executive slowly discover a vast conspiracy that threatens the Earth's rebellious colony on the asteroid belt.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#showCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#showCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>   
+<div class="container">
+    <h3 class="text-light py-5 ">Most Famous Series</h3>
+    <div class="row">
+        <div class="col-2">
+            <img src="img/show-4.jpg" alt="Sherlock" class="img-fluid">
+            <p class="text-light pt-2 text-center">Sherlock</p>
+        </div>
+        <div class="col-2">
+            <a href="/shows"><img src="img/show-3.jpg" alt="The Game of Thrones" class="img-fluid"></a>
+            <p class="text-light pt-2 text-center">The Game of Thrones</p>
+        </div>
+        <div class="col-2">
+            <img src="img/show-6.jpg" alt="WestWorld" class="img-fluid">
+            <p class="text-light pt-2 text-center">WestWorld</p>
+        </div>
+        <div class="col-2">
+            <img src="img/show-1.jpg" alt="True Detective" class="img-fluid">
+            <p class="text-light pt-2 text-center">True Detective</p>
+        </div>
+        <div class="col-2">
+            <img src="img/show-5.jpg" alt="Black Mirror" class="img-fluid">
+            <p class="text-light pt-2 text-center">Black Mirror</p>
+        </div>
+        <div class="col-2">
+            <img src="img/show-2.jpg" alt="" class="img-fluid">
+            <p class="text-light pt-2 text-center">Friends</p>
+        </div>   
+    </div>
+    <div class="row">
+        <div class="col-2">
+            <img src="img/show-1.jpg" alt="True Detective" class="img-fluid">
+            <p class="text-light pt-2 text-center">True Detective</p>
+        </div>
+        <div class="col-2">
+            <img src="img/show-2.jpg" alt="Friends" class="img-fluid">
+            <p class="text-light pt-2 text-center">Friends</p>
+        </div>
+        <div class="col-2">
+            <a href="/shows"><img src="img/show-3.jpg" alt="The Game of Thrones" class="img-fluid"></a>
+            <p class="text-light pt-2 text-center">The Game of Thrones</p>
+        </div>
+        <div class="col-2">
+            <img src="img/show-4.jpg" alt="Sherlock" class="img-fluid">
+            <p class="text-light pt-2 text-center">Sherlock</p>
+        </div>
+        <div class="col-2">
+            <img src="img/show-5.jpg" alt="Black Mirror" class="img-fluid">
+            <p class="text-light pt-2 text-center">Black Mirror</p>
+        </div>
+        <div class="col-2">
+            <img src="img/show-6.jpg" alt="WestWorld" class="img-fluid">
+            <p class="text-light pt-2 text-center">WestWorld</p>
+        </div>   
+    </div>
+    <h3 class="text-light py-5 ">Most Famous Movies</h3>
+    <div class="row">
+        <div class="col-2">
+            <img src="img/movie-1.jpg" alt="Interstellar" class="img-fluid">
+            <p class="text-light pt-2 text-center">Interstellar</p>
+        </div>
+        <div class="col-2">
+            <img src="img/movie-2.jpg" alt="Avengers Infinity War" class="img-fluid">
+            <p class="text-light pt-2 text-center">Avenger Infinity War</p>
+        </div>
+        <div class="col-2">
+            <img src="img/movie-3.jpg" alt="The Source Code" class="img-fluid">
+            <p class="text-light pt-2 text-center">The Source Code</p>
+        </div>
+        <div class="col-2">
+            <img src="img/movie-4.jpg" alt="Captain Marvel" class="img-fluid">
+            <p class="text-light pt-2 text-center">Captain Marvel</p>
+        </div>
+        <div class="col-2">
+            <img src="img/movie-5.jpg" alt="Inception" class="img-fluid">
+            <p class="text-light pt-2 text-center">Inception</p>
+        </div>
+        <div class="col-2">
+            <img src="img/movie-6.jpg" alt="The Dark Knight" class="img-fluid">
+            <p class="text-light pt-2 text-center">The Dark Knight</p>
+        </div>
+    </div>
 
-<% include ./partials/footer %>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script>
+    $(function() {
+        $(document).scroll(function() {
+
+        var $nav = $('#mainNav');
+
+        $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+        
+        });
+    });
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    });
+</script>
+</body>
+</html>

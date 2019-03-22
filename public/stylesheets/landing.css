@@ -2,11 +2,9 @@ body{
     background-color: #141414;
 }
 .navbar{
-    background: #090909;
+    /* background: #090909; */
     padding-right: 10%;
     padding-left: 10%;
-}
-#mainNav{
     background: transparent;
 }
 .far{
@@ -37,15 +35,15 @@ body{
     width: 100%;
 }
 #slide1{
-    background: url('img/slide-1.jpg');
+    background: url('../img/slide-1.jpg');
     background-size: 100% 100%;
 }
 #slide2{
-    background: url('img/slide-2.jpg');
+    background: url('../img/slide-2.jpg');
     background-size: 100% 100%;
 }
 #slide3{
-    background: url('img/slide-3.jpg');
+    background: url('../img/slide-3.jpg');
     background-size: 100% 100%;
 }
 nav ul{
