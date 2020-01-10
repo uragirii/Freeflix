@@ -1,15 +1,15 @@
 var express = require("express"),
 bodyParser = require("body-parser"),
-mongoose = require("mongoose"),
-passport = require("passport"),
-LocalStrategy = require("passport-local"),
-app = express(),
-Show = require("./models/show"),
-User = require("./models/user"),
-Comment = require("./models/comment");
+// mongoose = require("mongoose"),
+// passport = require("passport"),
+// LocalStrategy = require("passport-local"),
+app = express()
+// Show = require("./models/show"),
+// User = require("./models/user"),
+// Comment = require("./models/comment");
 // seedDB = require("./seeds");
 // APP Config
-mongoose.connect("mongodb://localhost:27017/freeflix", {useNewUrlParser:true});
+// mongoose.connect("mongodb://localhost:27017/freeflix", {useNewUrlParser:true});?
 app.set("view engine","ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -21,11 +21,11 @@ app.use(require("express-session")({
     resave: false,
     saveUninitialized: false
 }));
-app.use(passport.initialize());
-app.use(passport.session());
-passport.use(User.createStrategy());
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+// app.use(passport.initialize());
+// app.use(passport.session());
+// passport.use(User.createStrategy());
+// passport.serializeUser(User.serializeUser());
+// passport.deserializeUser(User.deserializeUser());
 app.use(function(req, res, next){
     res.locals.currentUser = req.user;
     next();
