@@ -1,6 +1,7 @@
 const express = require("express"),
 bodyParser = require("body-parser"),
 bcrypt = require("bcryptjs"),
+mysql = require("mysql"),
 // mongoose = require("mongoose"),
 // passport = require("passport"),
 // LocalStrategy = require("passport-local"),
@@ -31,6 +32,24 @@ app.use(function(req, res, next){
     next();
  });
 
+const db = mysql.createConnection({
+    host : "localhost",
+    user : "root",
+    password : "",
+    database : "freeflix"
+})
+
+//Connect to db 
+db.connect((err)=>{
+    if(err){
+    console.log(err)
+    }
+    else{
+    console.log("Database Connected")
+    }
+})
+
+global.db = db
 
 app.get("/", function(req, res){
     // Show.find({}, function(err,shows){
