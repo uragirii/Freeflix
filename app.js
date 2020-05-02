@@ -148,7 +148,7 @@ function isLoggedIn(req, res, next){
 };
 
 function isAdmin(req, res, next){
-    if(req.isAuthenticated() && req.user.username === "cherub"){
+    if(req.isAuthenticated() && req.user.username === "admin"){
         return next();
     }
     else{

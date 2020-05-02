@@ -35,6 +35,9 @@
                     <a class="btn btn-outline-none my-2 mycarousel-sm-0 text-light" href = "/login"><i class="far fa-user"></i> Login</a>
                 <% } else{ %>
                     <a class="btn btn-outline-none my-2 mycarousel-sm-0 text-light text-capitalize" href = "/logout"><i class="far fa-user"></i> <%= currentUser.username %></a>
+                    <% if(currentUser.username=="admin") { %>
+                    <a class="btn btn-outline-none my-2 mycarousel-sm-0 text-light text-capitalize" href = "/shows/new"><i class="fas fa-plus-circle"></i></i> Add new Shows</a>
+                    <%}%>
                 <% } %>
             </div>
         </div>
